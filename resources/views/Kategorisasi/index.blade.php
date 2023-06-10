@@ -12,6 +12,7 @@
         <div class="container-fluid">
             <div class="row justify-content-between ml-1 mr-1">
                 <h1 class="mt-4">Kategorisasi Resiko</h1>
+                <a class="btn btn-secondary mt-4 mb-4 text-white" href="/bobot/{{$id_trader}}">Input Bobot</a>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">

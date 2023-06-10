@@ -47,7 +47,7 @@
                                                 <a class="dropdown-item" href="/catat/{{$p->id_trader}}">Catat Pelanggaran</a>
                                                 <a class="dropdown-item" href="/perusahaan/{{$p->id_trader}}/pelanggaran">Pelanggaran dan Laporan</a>
                                                 <a class="dropdown-item" href="./kategorisasi/{{$p->id_trader}}">Kategorisasi Resiko</a>
-                                                <a class="dropdown-item" href="./bobot/{{$p->id_trader}}">Input Bobot</a>
+                                                {{-- <a class="dropdown-item" href="./bobot/{{$p->id_trader}}">Input Bobot</a> --}}
                                             </div>
                                         </div>
                                     </td>
