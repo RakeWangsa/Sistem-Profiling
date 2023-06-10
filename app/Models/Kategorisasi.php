@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategorisasi extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $table = 'kepatuhan';
     protected $connection = 'sqlsrv2';
