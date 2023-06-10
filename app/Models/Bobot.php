@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bobot extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $table = 'bobot';
     protected $connection = 'sqlsrv2';
