@@ -9,10 +9,17 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <div id="layoutSidenav_content">
     <main>
+        
+
         <div class="container-fluid">
             <div class="row justify-content-center ml-1 mr-1">
                 <h1 class="mt-4">Input Bobot</h1>
             </div>
+            @if(session('gagal'))
+                    <div class="alert alert-danger">
+                        {{ session('gagal') }}
+                    </div>
+                @endif
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card mb-4">
@@ -25,7 +32,7 @@
                             <div class="card-body">
                                 <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                 <div class="col-sm-10">
-                                  <input name="bobot_1" type="text" class="form-control" >
+                                  <input name="bobot_1" type="number" step="0.01" class="form-control" >
                                 </div>
                             </div>
                             
@@ -39,7 +46,7 @@
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_2" type="text" class="form-control" >
+                                      <input name="bobot_2" type="number" step="0.01" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +60,7 @@
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_3" type="text" class="form-control" >
+                                      <input name="bobot_3" type="number" step="0.01" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +74,7 @@
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_4" type="text" class="form-control" >
+                                      <input name="bobot_4" type="number" step="0.01" class="form-control" >
                                     </div>
                                 </div>
                             </div>

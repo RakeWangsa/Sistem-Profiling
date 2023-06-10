@@ -36,69 +36,130 @@ class BobotController extends Controller
         $kategori_3 = explode(':', $request->kategori_3);
         //Verifikasi 4
         $kategori_4 = explode(':', $request->kategori_4);
-
-        if(isset($request->bobot_1)){
-            $cekDB1 = Bobot::where('kode', $kategori_1[0])->first();
-            if ($cekDB1) {
-                Bobot::where('kode', $kategori_1[0])
-                ->update([
-                    'bobot' => $request->bobot_1,
-                ]);
-            } else {
-                Bobot::insert([
-                    'kode' => $kategori_1[0],
-                    'kategori' => $kategori_1[1],
-                    'bobot' => $request->bobot_1,
-                ]);
+        $total=$request->bobot_1+$request->bobot_2+$request->bobot_3+$request->bobot_4;
+        if($total>0 and $total<=1){
+            if(isset($request->bobot_1)){
+                $cekDB1 = Bobot::where('kode', $kategori_1[0])->first();
+                if ($cekDB1) {
+                    Bobot::where('kode', $kategori_1[0])
+                    ->update([
+                        'bobot' => $request->bobot_1,
+                    ]);
+                }else {
+                    Bobot::insert([
+                        'kode' => $kategori_1[0],
+                        'kategori' => $kategori_1[1],
+                        'bobot' => $request->bobot_1,
+                    ]);
+                }
+            }else{
+                $cekDB1 = Bobot::where('kode', $kategori_1[0])->first();
+                if ($cekDB1) {
+                    Bobot::where('kode', $kategori_1[0])
+                    ->update([
+                        'bobot' => '0'
+                    ]);
+                }else {
+                    Bobot::insert([
+                        'kode' => $kategori_1[0],
+                        'kategori' => $kategori_1[1],
+                        'bobot' => '0'
+                    ]);
+                }
             }
-        }
-        if(isset($request->bobot_2)){
-            $cekDB2 = Bobot::where('kode', $kategori_2[0])->first();
-            if ($cekDB2) {
-                Bobot::where('kode', $kategori_2[0])
-                ->update([
-                    'bobot' => $request->bobot_2,
-                ]);
-            } else {
-                Bobot::insert([
-                    'kode' => $kategori_2[0],
-                    'kategori' => $kategori_2[1],
-                    'bobot' => $request->bobot_2,
-                ]);
+            if(isset($request->bobot_2)){
+                $cekDB2 = Bobot::where('kode', $kategori_2[0])->first();
+                if ($cekDB2) {
+                    Bobot::where('kode', $kategori_2[0])
+                    ->update([
+                        'bobot' => $request->bobot_2,
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_2[0],
+                        'kategori' => $kategori_2[1],
+                        'bobot' => $request->bobot_2,
+                    ]);
+                }
+            }else{
+                $cekDB2 = Bobot::where('kode', $kategori_2[0])->first();
+                if ($cekDB2) {
+                    Bobot::where('kode', $kategori_2[0])
+                    ->update([
+                        'bobot' => '0'
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_2[0],
+                        'kategori' => $kategori_2[1],
+                        'bobot' => '0'
+                    ]);
+                }
             }
-        }
-        if(isset($request->bobot_3)){
-            $cekDB3 = Bobot::where('kode', $kategori_3[0])->first();
-            if ($cekDB3) {
-                Bobot::where('kode', $kategori_3[0])
-                ->update([
-                    'bobot' => $request->bobot_3,
-                ]);
-            } else {
-                Bobot::insert([
-                    'kode' => $kategori_3[0],
-                    'kategori' => $kategori_3[1],
-                    'bobot' => $request->bobot_3,
-                ]);
+            if(isset($request->bobot_3)){
+                $cekDB3 = Bobot::where('kode', $kategori_3[0])->first();
+                if ($cekDB3) {
+                    Bobot::where('kode', $kategori_3[0])
+                    ->update([
+                        'bobot' => $request->bobot_3,
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_3[0],
+                        'kategori' => $kategori_3[1],
+                        'bobot' => $request->bobot_3,
+                    ]);
+                }
+            }else{
+                $cekDB3 = Bobot::where('kode', $kategori_3[0])->first();
+                if ($cekDB3) {
+                    Bobot::where('kode', $kategori_3[0])
+                    ->update([
+                        'bobot' => '0'
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_3[0],
+                        'kategori' => $kategori_3[1],
+                        'bobot' => '0'
+                    ]);
+                }
             }
-        }
-        if(isset($request->bobot_4)){
-            $cekDB4 = Bobot::where('kode', $kategori_4[0])->first();
-            if ($cekDB4) {
-                Bobot::where('kode', $kategori_4[0])
-                ->update([
-                    'bobot' => $request->bobot_4,
-                ]);
-            } else {
-                Bobot::insert([
-                    'kode' => $kategori_4[0],
-                    'kategori' => $kategori_4[1],
-                    'bobot' => $request->bobot_4,
-                ]);
+            if(isset($request->bobot_4)){
+                $cekDB4 = Bobot::where('kode', $kategori_4[0])->first();
+                if ($cekDB4) {
+                    Bobot::where('kode', $kategori_4[0])
+                    ->update([
+                        'bobot' => $request->bobot_4,
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_4[0],
+                        'kategori' => $kategori_4[1],
+                        'bobot' => $request->bobot_4,
+                    ]);
+                }
+            }else{
+                $cekDB4 = Bobot::where('kode', $kategori_4[0])->first();
+                if ($cekDB4) {
+                    Bobot::where('kode', $kategori_4[0])
+                    ->update([
+                        'bobot' => '0'
+                    ]);
+                } else {
+                    Bobot::insert([
+                        'kode' => $kategori_4[0],
+                        'kategori' => $kategori_4[1],
+                        'bobot' => '0'
+                    ]);
+                }
             }
+    
+            return redirect('/') ; 
+        }else{
+            return redirect('/bobot/' . $id_trader)->with('gagal', 'Jumlah bobot harus antara 0-1');
         }
-
-        return redirect('/') ; 
+        
     
     }
 }
