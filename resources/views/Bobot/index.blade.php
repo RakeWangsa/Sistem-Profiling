@@ -26,59 +26,60 @@
                         <form class="row g-3 mt-3" method="GET" action="{{route('SubmitBobot',['id_trader'=> $id_trader])}}">
                             <!-- Verifikasi 1 -->
                             <div class="card-header col-sm-11 ml-3">
-                                <input name="kategori_1" type="text" class="form-control col-sm-10"  value="A:STATUS KEPEMILIKAN PERUSAHAAN" style="border: none; background-color: transparent;">
+                                <input name="kategori_1" type="text" class="form-control col-sm-10"  value="A:STATUS KEPEMILIKAN PERUSAHAAN" style="border: none; background-color: transparent;" readonly>
                             </div>
 
                             <div class="card-body">
                                 <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                 <div class="col-sm-10">
-                                  <input name="bobot_1" type="number" step="0.01" class="form-control" >
+                                  <input name="bobot_1" type="number" step="0.01" class="form-control" required>
                                 </div>
                             </div>
                             
                             
                             <!-- Verifikasi 2 -->
                             <div class="card-header col-sm-11 ml-3">
-                                <input name="kategori_2" type="text" class="form-control col-sm-10"  value="B:SARANA DAN PRASARANA" style="border: none; background-color: transparent;">
+                                <input name="kategori_2" type="text" class="form-control col-sm-10"  value="B:SARANA DAN PRASARANA" style="border: none; background-color: transparent;" readonly>
                             </div>
 
                             <div class="card-body">
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_2" type="number" step="0.01" class="form-control" >
+                                      <input name="bobot_2" type="number" step="0.01" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Verifikasi 3 -->
                             <div class="card-header col-sm-11 ml-3">
-                                <input name="kategori_3" type="text" class="form-control col-sm-11"  value="C:KETAATAN PADA PROSEDUR TINDAKAN KARANTINA IKAN, MUTU DAN KKP" style="border: none; background-color: transparent;">
+                                <input name="kategori_3" type="text" class="form-control col-sm-11"  value="C:KETAATAN PADA PROSEDUR TINDAKAN KARANTINA IKAN, MUTU DAN KKP" style="border: none; background-color: transparent;" readonly>
                             </div>
 
                             <div class="card-body">
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_3" type="number" step="0.01" class="form-control" >
+                                      <input name="bobot_3" type="number" step="0.01" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Verifikasi 4 -->
                             <div class="card-header col-sm-11 ml-3">
-                                <input name="kategori_4" type="text" class="form-control col-sm-10"  value="D:KASUS PELANGGARAN " style="border: none; background-color: transparent;">
+                                <input name="kategori_4" type="text" class="form-control col-sm-10"  value="D:KASUS PELANGGARAN " style="border: none; background-color: transparent;" readonly>
                             </div>
 
                             <div class="card-body">
                                 <div class="card-body">
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
-                                      <input name="bobot_4" type="number" step="0.01" class="form-control" >
+                                      <input name="bobot_4" type="number" step="0.01" class="form-control" required>
                                     </div>
                                 </div>
+                                <div class="text-center ml-4 mb-5 mt-4"> <button type="submit" class="btn btn-primary">Submit</button> <button type="reset" class="btn btn-secondary">Reset</button></div>
                             </div>
-                            <div class="text-center ml-4 mb-5 mt-4"> <button type="submit" class="btn btn-primary">Submit</button> <button type="reset" class="btn btn-secondary">Reset</button></div>
+                            
                         </form>
                             
 
