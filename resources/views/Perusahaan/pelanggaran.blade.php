@@ -15,7 +15,7 @@
             @endif
             <div class="d-flex justify-content-between">
                 <h1 class="mt-4">Pelanggaran Perusahaan</h1>
-                <a type="button" class="btn btn-primary mt-4 mb-4" href="/catat/ {{$perusahaan->id_trader}}">Catat Pelanggaran</a>
+                <a type="button" class="btn btn-primary mt-4 mb-4" href="/catat/{{$perusahaan->id_trader}}">Catat Pelanggaran</a>
 
             </div>
             <ol class="breadcrumb mb-4">

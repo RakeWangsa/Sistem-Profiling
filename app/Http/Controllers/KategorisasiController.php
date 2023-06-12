@@ -104,590 +104,489 @@ class KategorisasiController extends Controller
         ->select('*')
         ->get();
         if(count($cekDB)>0){
-            if(isset($v3_1[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_1)
-                ->update([
-                    'verifikasi3' => $v3_1[1],
-                    'nilai' => $v3_1[0]
-                ]);
-            }
-            if(isset($v3_2[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_2)
-                ->update([
-                    'verifikasi3' => $v3_2[1],
-                    'nilai' => $v3_2[0]
-                ]);
-            }
-            if(isset($v3_3[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_3)
-                ->update([
-                    'verifikasi3' => $v3_3[1],
-                    'nilai' => $v3_3[0]
-                ]);
-            }
-            if(isset($v3_4[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_4)
-                ->update([
-                    'verifikasi3' => $v3_4[1],
-                    'nilai' => $v3_4[0]
-                ]);
-            }
-            if(isset($v3_5[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_5)
-                ->update([
-                    'verifikasi3' => $v3_5[1],
-                    'nilai' => $v3_5[0]
-                ]);
-            }
-            if(isset($v3_6[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_6)
-                ->update([
-                    'verifikasi3' => $v3_6[1],
-                    'nilai' => $v3_6[0]
-                ]);
-            }
-            if(isset($v3_7[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_7)
-                ->update([
-                    'verifikasi3' => $v3_7[1],
-                    'nilai' => $v3_7[0]
-                ]);
-            }
-            if(isset($v3_8[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_8)
-                ->update([
-                    'verifikasi3' => $v3_8[1],
-                    'nilai' => $v3_8[0]
-                ]);
-            }
-            if(isset($v3_9[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_9)
-                ->update([
-                    'verifikasi3' => $v3_9[1],
-                    'nilai' => $v3_9[0]
-                ]);
-            }
-            if(isset($v3_10[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_10)
-                ->update([
-                    'verifikasi3' => $v3_10[1],
-                    'nilai' => $v3_10[0]
-                ]);
-            }
-            if(isset($v3_11[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_11)
-                ->update([
-                    'verifikasi3' => $v3_11[1],
-                    'nilai' => $v3_11[0]
-                ]);
-            }
-            if(isset($v3_12[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_12)
-                ->update([
-                    'verifikasi3' => $v3_12[1],
-                    'nilai' => $v3_12[0]
-                ]);
-            }
-            if(isset($v3_13[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_13)
-                ->update([
-                    'verifikasi3' => $v3_13[1],
-                    'nilai' => $v3_13[0]
-                ]);
-            }
-            if(isset($v3_14[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_14)
-                ->update([
-                    'verifikasi3' => $v3_14[1],
-                    'nilai' => $v3_14[0]
-                ]);
-            }
-            if(isset($v3_15[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_15)
-                ->update([
-                    'verifikasi3' => $v3_15[1],
-                    'nilai' => $v3_15[0]
-                ]);
-            }
-            if(isset($v3_16[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_16)
-                ->update([
-                    'verifikasi3' => $v3_16[1],
-                    'nilai' => $v3_16[0]
-                ]);
-            }
-            if(isset($v3_17[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_17)
-                ->update([
-                    'verifikasi3' => $v3_17[1],
-                    'nilai' => $v3_17[0]
-                ]);
-            }
-            if(isset($v3_18[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_18)
-                ->update([
-                    'verifikasi3' => $v3_18[1],
-                    'nilai' => $v3_18[0]
-                ]);
-            }
-            if(isset($v3_19[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_19)
-                ->update([
-                    'verifikasi3' => $v3_19[1],
-                    'nilai' => $v3_19[0]
-                ]);
-            }
-            if(isset($v3_20[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_20)
-                ->update([
-                    'verifikasi3' => $v3_20[1],
-                    'nilai' => $v3_20[0]
-                ]);
-            }
-            if(isset($v3_21[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_21)
-                ->update([
-                    'verifikasi3' => $v3_21[1],
-                    'nilai' => $v3_21[0]
-                ]);
-            }
-            if(isset($v3_22[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_22)
-                ->update([
-                    'verifikasi3' => $v3_22[1],
-                    'nilai' => $v3_22[0]
-                ]);
-            }
-            if(isset($v3_23[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_23)
-                ->update([
-                    'verifikasi3' => $v3_23[1],
-                    'nilai' => $v3_23[0]
-                ]);
-            }
-            if(isset($v3_24[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_24)
-                ->update([
-                    'verifikasi3' => $v3_24[1],
-                    'nilai' => $v3_24[0]
-                ]);
-            }
-            if(isset($v3_25[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_25)
-                ->update([
-                    'verifikasi3' => $v3_25[1],
-                    'nilai' => $v3_25[0]
-                ]);
-            }
-            if(isset($v3_26[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_26)
-                ->update([
-                    'verifikasi3' => $v3_26[1],
-                    'nilai' => $v3_26[0]
-                ]);
-            }
-            if(isset($v3_27[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_27)
-                ->update([
-                    'verifikasi3' => $v3_27[1],
-                    'nilai' => $v3_27[0]
-                ]);
-            }
-            if(isset($v3_28[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_28)
-                ->update([
-                    'verifikasi3' => $v3_28[1],
-                    'nilai' => $v3_28[0]
-                ]);
-            }
-            if(isset($v3_29[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_29)
-                ->update([
-                    'verifikasi3' => $v3_29[1],
-                    'nilai' => $v3_29[0]
-                ]);
-            }
-            if(isset($v3_30[1])){
-                Kategorisasi::where('id_trader', $id_trader)
-                ->where('verifikasi2', $request -> v2_30)
-                ->update([
-                    'verifikasi3' => $v3_30[1],
-                    'nilai' => $v3_30[0]
-                ]);
-            }
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_1)
+            ->update([
+                'verifikasi3' => $v3_1[1],
+                'nilai' => $v3_1[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_2)
+            ->update([
+                'verifikasi3' => $v3_2[1],
+                'nilai' => $v3_2[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_3)
+            ->update([
+                'verifikasi3' => $v3_3[1],
+                'nilai' => $v3_3[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_4)
+            ->update([
+                'verifikasi3' => $v3_4[1],
+                'nilai' => $v3_4[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_5)
+            ->update([
+                'verifikasi3' => $v3_5[1],
+                'nilai' => $v3_5[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_6)
+            ->update([
+                'verifikasi3' => $v3_6[1],
+                'nilai' => $v3_6[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_7)
+            ->update([
+                'verifikasi3' => $v3_7[1],
+                'nilai' => $v3_7[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_8)
+            ->update([
+                'verifikasi3' => $v3_8[1],
+                'nilai' => $v3_8[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_9)
+            ->update([
+                'verifikasi3' => $v3_9[1],
+                'nilai' => $v3_9[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_10)
+            ->update([
+                'verifikasi3' => $v3_10[1],
+                'nilai' => $v3_10[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_11)
+            ->update([
+                'verifikasi3' => $v3_11[1],
+                'nilai' => $v3_11[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_12)
+            ->update([
+                'verifikasi3' => $v3_12[1],
+                'nilai' => $v3_12[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_13)
+            ->update([
+                'verifikasi3' => $v3_13[1],
+                'nilai' => $v3_13[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_14)
+            ->update([
+                'verifikasi3' => $v3_14[1],
+                'nilai' => $v3_14[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_15)
+            ->update([
+                'verifikasi3' => $v3_15[1],
+                'nilai' => $v3_15[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_16)
+            ->update([
+                'verifikasi3' => $v3_16[1],
+                'nilai' => $v3_16[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_17)
+            ->update([
+                'verifikasi3' => $v3_17[1],
+                'nilai' => $v3_17[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_18)
+            ->update([
+                'verifikasi3' => $v3_18[1],
+                'nilai' => $v3_18[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_19)
+            ->update([
+                'verifikasi3' => $v3_19[1],
+                'nilai' => $v3_19[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_20)
+            ->update([
+                'verifikasi3' => $v3_20[1],
+                'nilai' => $v3_20[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_21)
+            ->update([
+                'verifikasi3' => $v3_21[1],
+                'nilai' => $v3_21[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_22)
+            ->update([
+                'verifikasi3' => $v3_22[1],
+                'nilai' => $v3_22[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_23)
+            ->update([
+                'verifikasi3' => $v3_23[1],
+                'nilai' => $v3_23[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_24)
+            ->update([
+                'verifikasi3' => $v3_24[1],
+                'nilai' => $v3_24[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_25)
+            ->update([
+                'verifikasi3' => $v3_25[1],
+                'nilai' => $v3_25[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_26)
+            ->update([
+                'verifikasi3' => $v3_26[1],
+                'nilai' => $v3_26[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_27)
+            ->update([
+                'verifikasi3' => $v3_27[1],
+                'nilai' => $v3_27[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_28)
+            ->update([
+                'verifikasi3' => $v3_28[1],
+                'nilai' => $v3_28[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_29)
+            ->update([
+                'verifikasi3' => $v3_29[1],
+                'nilai' => $v3_29[0]
+            ]);
+        
+            Kategorisasi::where('id_trader', $id_trader)
+            ->where('verifikasi2', $request -> v2_30)
+            ->update([
+                'verifikasi3' => $v3_30[1],
+                'nilai' => $v3_30[0]
+            ]);   
         }else{
-            if(isset($v3_1[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_1,
-                    'verifikasi3'=> $v3_1[1],
-                    'nilai' => $v3_1[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_1,
+                'verifikasi3'=> $v3_1[1],
+                'nilai' => $v3_1[0]
+            ]);
 
-            if(isset($v3_2[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_2,
-                    'verifikasi3'=> $v3_2[1],
-                    'nilai' => $v3_2[0]
-                ]);
-            }
-
-            if(isset($v3_3[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_3,
-                    'verifikasi3'=> $v3_3[1],
-                    'nilai' => $v3_3[0]
-                ]);
-            }
-
-            if(isset($v3_4[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_4,
-                    'verifikasi3'=> $v3_4[1],
-                    'nilai' => $v3_4[0]
-                ]);
-            }
-
-            if(isset($v3_5[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_5,
-                    'verifikasi3'=> $v3_5[1],
-                    'nilai' => $v3_5[0]
-                ]);
-            }
-
-            if(isset($v3_6[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_6,
-                    'verifikasi3'=> $v3_6[1],
-                    'nilai' => $v3_6[0]
-                ]);
-            }
-
-            if(isset($v3_7[1])){    
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_1[0],
-                    'verifikasi1'=> $v1_1[1],
-                    'verifikasi2'=> $request -> v2_7,
-                    'verifikasi3'=> $v3_7[1],
-                    'nilai' => $v3_7[0]
-                ]);
-            }
-
-            if(isset($v3_8[1])){
-                // Verifikasi 2
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_8,
-                    'verifikasi3'=> $v3_8[1],
-                    'nilai' => $v3_8[0]
-                ]);
-            }
-
-            if(isset($v3_9[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_9,
-                    'verifikasi3'=> $v3_9[1],
-                    'nilai' => $v3_9[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_2,
+                'verifikasi3'=> $v3_2[1],
+                'nilai' => $v3_2[0]
+            ]);
         
-            if(isset($v3_10[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_10,
-                    'verifikasi3'=> $v3_10[1],
-                    'nilai' => $v3_10[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_3,
+                'verifikasi3'=> $v3_3[1],
+                'nilai' => $v3_3[0]
+            ]);
         
-            if(isset($v3_11[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_11,
-                    'verifikasi3'=> $v3_11[1],
-                    'nilai' => $v3_11[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_4,
+                'verifikasi3'=> $v3_4[1],
+                'nilai' => $v3_4[0]
+            ]);
         
-            if(isset($v3_12[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_12,
-                    'verifikasi3'=> $v3_12[1],
-                    'nilai' => $v3_12[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_5,
+                'verifikasi3'=> $v3_5[1],
+                'nilai' => $v3_5[0]
+            ]);
         
-            if(isset($v3_13[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_13,
-                    'verifikasi3'=> $v3_13[1],
-                    'nilai' => $v3_13[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_6,
+                'verifikasi3'=> $v3_6[1],
+                'nilai' => $v3_6[0]
+            ]);
+
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_1[0],
+                'verifikasi1'=> $v1_1[1],
+                'verifikasi2'=> $request -> v2_7,
+                'verifikasi3'=> $v3_7[1],
+                'nilai' => $v3_7[0]
+            ]);
         
-            if(isset($v3_14[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_2[0],
-                    'verifikasi1'=> $v1_2[1],
-                    'verifikasi2'=> $request -> v2_14,
-                    'verifikasi3'=> $v3_14[1],
-                    'nilai' => $v3_14[0]
-                ]);
-            }
+            // Verifikasi 2
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_8,
+                'verifikasi3'=> $v3_8[1],
+                'nilai' => $v3_8[0]
+            ]);
         
-                //Verifikasi 3
-            if(isset($v3_15[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_15,
-                    'verifikasi3'=> $v3_15[1],
-                    'nilai' => $v3_15[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_9,
+                'verifikasi3'=> $v3_9[1],
+                'nilai' => $v3_9[0]
+            ]);
         
-            if(isset($v3_16[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_16,
-                    'verifikasi3'=> $v3_16[1],
-                    'nilai' => $v3_16[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_10,
+                'verifikasi3'=> $v3_10[1],
+                'nilai' => $v3_10[0]
+            ]);
         
-            if(isset($v3_17[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_17,
-                    'verifikasi3'=> $v3_17[1],
-                    'nilai' => $v3_17[0]
-                ]);
-            }
-
-            if(isset($v3_18[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_18,
-                    'verifikasi3'=> $v3_18[1],
-                    'nilai' => $v3_18[0]
-                ]);
-            }
-
-            if(isset($v3_19[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_19,
-                    'verifikasi3'=> $v3_19[1],
-                    'nilai' => $v3_19[0]
-                ]);
-            }
-
-            if(isset($v3_20[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_20,
-                    'verifikasi3'=> $v3_20[1],
-                    'nilai' => $v3_20[0]
-                ]);
-            }
-
-            if(isset($v3_21[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_21,
-                    'verifikasi3'=> $v3_21[1],
-                    'nilai' => $v3_21[0]
-                ]);
-            }
-
-            if(isset($v3_22[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_22,
-                    'verifikasi3'=> $v3_22[1],
-                    'nilai' => $v3_22[0]
-                ]);
-            }
-
-            if(isset($v3_23[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_23,
-                    'verifikasi3'=> $v3_23[1],
-                    'nilai' => $v3_23[0]
-                ]);
-            }
-
-            if(isset($v3_24[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_24,
-                    'verifikasi3'=> $v3_24[1],
-                    'nilai' => $v3_24[0]
-                ]);
-            }
-
-            if(isset($v3_25[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_25,
-                    'verifikasi3'=> $v3_25[1],
-                    'nilai' => $v3_25[0]
-                ]);
-            }
-
-            if(isset($v3_26[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_3[0],
-                    'verifikasi1'=> $v1_3[1],
-                    'verifikasi2'=> $request -> v2_26,
-                    'verifikasi3'=> $v3_26[1],
-                    'nilai' => $v3_26[0]
-                ]);
-            }
-                
-                //Verifikasi 4
-            if(isset($v3_27[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_4[0],
-                    'verifikasi1'=> $v1_4[1],
-                    'verifikasi2'=> $request -> v2_27,
-                    'verifikasi3'=> $v3_27[1],
-                    'nilai' => $v3_27[0]
-                ]);
-            }
-
-            if(isset($v3_28[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_4[0],
-                    'verifikasi1'=> $v1_4[1],
-                    'verifikasi2'=> $request -> v2_28,
-                    'verifikasi3'=> $v3_28[1],
-                    'nilai' => $v3_28[0]
-                ]);
-            }
-
-            if(isset($v3_29[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_4[0],
-                    'verifikasi1'=> $v1_4[1],
-                    'verifikasi2'=> $request -> v2_29,
-                    'verifikasi3'=> $v3_29[1],
-                    'nilai' => $v3_29[0]
-                ]);
-            }
-
-            if(isset($v3_30[1])){
-                Kategorisasi::insert([
-                    'id_trader' => $id_trader,
-                    'kode'=> $v1_4[0],
-                    'verifikasi1'=> $v1_4[1],
-                    'verifikasi2'=> $request -> v2_30,
-                    'verifikasi3'=> $v3_30[1],
-                    'nilai' => $v3_30[0]
-                ]);
-            }
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_11,
+                'verifikasi3'=> $v3_11[1],
+                'nilai' => $v3_11[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_12,
+                'verifikasi3'=> $v3_12[1],
+                'nilai' => $v3_12[0]
+            ]);
+    
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_13,
+                'verifikasi3'=> $v3_13[1],
+                'nilai' => $v3_13[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_2[0],
+                'verifikasi1'=> $v1_2[1],
+                'verifikasi2'=> $request -> v2_14,
+                'verifikasi3'=> $v3_14[1],
+                'nilai' => $v3_14[0]
+            ]);
+        
+            //Verifikasi 3
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_15,
+                'verifikasi3'=> $v3_15[1],
+                'nilai' => $v3_15[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_16,
+                'verifikasi3'=> $v3_16[1],
+                'nilai' => $v3_16[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_17,
+                'verifikasi3'=> $v3_17[1],
+                'nilai' => $v3_17[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_18,
+                'verifikasi3'=> $v3_18[1],
+                'nilai' => $v3_18[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_19,
+                'verifikasi3'=> $v3_19[1],
+                'nilai' => $v3_19[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_20,
+                'verifikasi3'=> $v3_20[1],
+                'nilai' => $v3_20[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_21,
+                'verifikasi3'=> $v3_21[1],
+                'nilai' => $v3_21[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_22,
+                'verifikasi3'=> $v3_22[1],
+                'nilai' => $v3_22[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_23,
+                'verifikasi3'=> $v3_23[1],
+                'nilai' => $v3_23[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_24,
+                'verifikasi3'=> $v3_24[1],
+                'nilai' => $v3_24[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_25,
+                'verifikasi3'=> $v3_25[1],
+                'nilai' => $v3_25[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_3[0],
+                'verifikasi1'=> $v1_3[1],
+                'verifikasi2'=> $request -> v2_26,
+                'verifikasi3'=> $v3_26[1],
+                'nilai' => $v3_26[0]
+            ]);
+        
+            //Verifikasi 4
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_4[0],
+                'verifikasi1'=> $v1_4[1],
+                'verifikasi2'=> $request -> v2_27,
+                'verifikasi3'=> $v3_27[1],
+                'nilai' => $v3_27[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_4[0],
+                'verifikasi1'=> $v1_4[1],
+                'verifikasi2'=> $request -> v2_28,
+                'verifikasi3'=> $v3_28[1],
+                'nilai' => $v3_28[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_4[0],
+                'verifikasi1'=> $v1_4[1],
+                'verifikasi2'=> $request -> v2_29,
+                'verifikasi3'=> $v3_29[1],
+                'nilai' => $v3_29[0]
+            ]);
+        
+            Kategorisasi::insert([
+                'id_trader' => $id_trader,
+                'kode'=> $v1_4[0],
+                'verifikasi1'=> $v1_4[1],
+                'verifikasi2'=> $request -> v2_30,
+                'verifikasi3'=> $v3_30[1],
+                'nilai' => $v3_30[0]
+            ]);
         }
-       
-
-
-
-        
         return redirect('/') ; 
-    
     }
-
-    
-   
-
 }
