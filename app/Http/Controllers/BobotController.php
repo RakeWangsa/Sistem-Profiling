@@ -37,7 +37,7 @@ class BobotController extends Controller
         //Verifikasi 4
         $kategori_4 = explode(':', $request->kategori_4);
         $total=$request->bobot_1+$request->bobot_2+$request->bobot_3+$request->bobot_4;
-        if($total>0 and $total<=1){
+        if($total>0 and $total<=100){
             $cekDB = Bobot::get();
             if (count($cekDB)>0) {
                 Bobot::where('kode', $kategori_1[0])
@@ -80,7 +80,7 @@ class BobotController extends Controller
             }
             return redirect('/') ; 
         }else{
-            return redirect('/bobot/' . $id_trader)->with('gagal', 'Jumlah bobot harus antara 0-1');
+            return redirect('/bobot/' . $id_trader)->with('gagal', 'Jumlah bobot harus antara 0-100');
         }
         
     

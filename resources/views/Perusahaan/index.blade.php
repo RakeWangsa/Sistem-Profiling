@@ -27,7 +27,7 @@
                                     <th>Id Negara</th>
                                     <th>Alamat</th>
                                     <th>Skor</th>
-                                   
+                                    <th>kurang</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -83,7 +83,7 @@
                                                     ->pluck('bobot')
                                                     ->first();
                                                 $nilaiD=$sumD*$bobotD;
-                                                $total=$nilaiA+$nilaiB+$nilaiC+$nilaiD;
+                                                $total=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
                                                 echo $total;
                                             }else{
                                                 echo '-';
@@ -91,6 +91,17 @@
                                             
                                         ?>
                                     </td>
+
+                                    <td>
+                                        <?php
+                                            $pengurangan = DB::table('pelanggaran_perusahaan')
+                                            ->where('perusahaan_id', $p->id_trader)
+                                            ->select('pelanggaran_id')
+                                            ->get();
+                                            echo $pengurangan;
+                                        ?>
+                                    </td>
+
                                     <td>
                                         <!-- <a href="pelanggaran/{{$p->id_trader}}">detail...</a> -->
                                         <div class="btn-group">
