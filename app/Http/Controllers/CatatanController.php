@@ -205,18 +205,34 @@ class CatatanController extends Controller
             ->pluck('skor')
             ->first();
             $total = $skor - $totalPengurangan;
+            if($total>=75){
+                $kepatuhan="tinggi";
+            }elseif($total<75 && $total>=45){
+                $kepatuhan="sedang";
+            }else{
+                $kepatuhan="rendah";
+            }
             penilaian::where('id_trader', $id)
             ->update([
                 'pengurangan' => $totalPengurangan,
-                'total' => $total
+                'total' => $total,
+                'kepatuhan' => $kepatuhan
             ]);
         }else{
             $total = 0 - $totalPengurangan;
+            if($total>=75){
+                $kepatuhan="tinggi";
+            }elseif($total<75 && $total>=45){
+                $kepatuhan="sedang";
+            }else{
+                $kepatuhan="rendah";
+            }
             penilaian::insert([
                 'id_trader' => $id,
                 'skor'=> 0,
                 'pengurangan'=> $totalPengurangan,
                 'total'=> $total,
+                'kepatuhan' => $kepatuhan
             ]);
         }
 

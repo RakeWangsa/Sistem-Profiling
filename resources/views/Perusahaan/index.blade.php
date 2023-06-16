@@ -72,8 +72,8 @@
                                             ->where('id_trader', $p->id_trader)
                                             ->pluck('kepatuhan')
                                             ->first();
-                                            echo $totalSkor;
-                                            echo "\n".$patuh;
+                                            echo $totalSkor."<br>";
+                                            echo $patuh;
                                         ?>
                                     </td>
                                     <td>
