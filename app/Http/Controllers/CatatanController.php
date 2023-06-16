@@ -332,6 +332,44 @@ class CatatanController extends Controller
                     $i++;
                 };
                 if ($store) {
+                    $id_trader = DB::table('pelanggaran_perusahaan')
+                    ->where('id_catatan', $id)
+                    ->pluck('perusahaan_id')
+                    ->first();
+                    $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+                    ->where('perusahaan_id', $id_trader)
+                    ->pluck('pelanggaran_id');
+                    $pengurangan = DB::table('pelanggaran')
+                    ->whereIn('id', $pelanggaran_perusahaan)
+                    ->pluck('kriteria');
+                    $text = implode(" ", $pengurangan->toArray());
+                    $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+                    $jumlah_teknis = substr_count($text, "TEKNIS");
+                    $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
+                    $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
+                    ->where('id_trader',$id_trader)
+                    ->select('*')
+                    ->get();
+                    if(count($cekDBnilai)>0){
+                        $skor = DB::connection('sqlsrv')->table('penilaian')
+                        ->where('id_trader', $id_trader)
+                        ->pluck('skor')
+                        ->first();
+                        $total = $skor - $totalPengurangan;
+                        penilaian::where('id_trader', $id_trader)
+                        ->update([
+                            'pengurangan' => $totalPengurangan,
+                            'total' => $total
+                        ]);
+                    }else{
+                        $total = 0 - $totalPengurangan;
+                        penilaian::insert([
+                            'id_trader' => $id_trader,
+                            'skor'=> 0,
+                            'pengurangan'=> $totalPengurangan,
+                            'total'=> $total,
+                        ]);
+                    }
                     return redirect()->route('perusahaan.pelanggaran', ['id' => $catatan->perusahaan_id])->with('success', 'data berhasil di edit');
                 }
             } else {
