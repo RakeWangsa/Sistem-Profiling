@@ -21,6 +21,12 @@ class PerusahaanController extends Controller
         return view('Perusahaan.index', ['perusahaan' => $perusahaan]);
     }
 
+    public function cetak()
+    {
+	$perusahaan = DB::connection('sqlsrv2')->select("SELECT id_trader, nm_trader, al_trader, kd_negara FROM [tb_r_trader] WHERE kd_trader_ol IS NOT NULL AND len(npwp) = 20 and email <> '' and email <> '-'");
+        return view('Perusahaan.cetak', ['perusahaan' => $perusahaan]);
+    }
+
     public function detail($id)
     {
         $tahun = date("Y");
