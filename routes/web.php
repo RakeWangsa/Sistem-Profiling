@@ -30,6 +30,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [PerusahaanController::class, 'index']);
     Route::get('/perusahaan', [PerusahaanController::class, 'index']);
+    Route::get('/cetak', [PerusahaanController::class, 'cetak']);
     Route::get('/perusahaan/{id}', [PerusahaanController::class, 'detail'])->name('perusahaan.detail');
     Route::get('/perusahaan/{id}/pelanggaran', [PerusahaanController::class, 'pelanggaran'])->name('perusahaan.pelanggaran');
     
