@@ -79,69 +79,93 @@ class BobotController extends Controller
                     'bobot' => $request->bobot_4,
                 ]);
             }
-            $sumA = DB::connection('sqlsrv2')->table('kepatuhan')
-        ->where('id_trader', $id_trader)
-        ->where('kode', 'A')
-        ->sum('nilai');
-        $bobotA = DB::connection('sqlsrv2')->table('bobot')
-            ->where('kode', 'A')
-            ->pluck('bobot')
-            ->first();
-        $nilaiA=$sumA*$bobotA;
+            $id_trader = DB::connection('sqlsrv')->table('penilaian')
+            ->select('id_trader')
+            ->get();
+            foreach ($id_trader as $row) {
+                $sumA = DB::connection('sqlsrv2')->table('kepatuhan')
+                ->where('id_trader', $row->id_trader)
+                ->where('kode', 'A')
+                ->sum('nilai');
+                $bobotA = DB::connection('sqlsrv2')->table('bobot')
+                    ->where('kode', 'A')
+                    ->pluck('bobot')
+                    ->first();
+                $nilaiA=$sumA*$bobotA;
 
-        $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
-            ->where('id_trader', $id_trader)
-            ->where('kode', 'B')
-            ->sum('nilai');
-        $bobotB = DB::connection('sqlsrv2')->table('bobot')
-            ->where('kode', 'B')
-            ->pluck('bobot')
-            ->first();
-        $nilaiB=$sumB*$bobotB;
+                $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
+                    ->where('id_trader', $row->id_trader)
+                    ->where('kode', 'B')
+                    ->sum('nilai');
+                $bobotB = DB::connection('sqlsrv2')->table('bobot')
+                    ->where('kode', 'B')
+                    ->pluck('bobot')
+                    ->first();
+                $nilaiB=$sumB*$bobotB;
 
-        $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
-            ->where('id_trader', $id_trader)
-            ->where('kode', 'C')
-            ->sum('nilai');
-        $bobotC = DB::connection('sqlsrv2')->table('bobot')
-            ->where('kode', 'C')
-            ->pluck('bobot')
-            ->first();
-        $nilaiC=$sumC*$bobotC;
+                $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
+                    ->where('id_trader', $row->id_trader)
+                    ->where('kode', 'C')
+                    ->sum('nilai');
+                $bobotC = DB::connection('sqlsrv2')->table('bobot')
+                    ->where('kode', 'C')
+                    ->pluck('bobot')
+                    ->first();
+                $nilaiC=$sumC*$bobotC;
 
-        $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
-            ->where('id_trader', $id_trader)
-            ->where('kode', 'D')
-            ->sum('nilai');
-        $bobotD = DB::connection('sqlsrv2')->table('bobot')
-            ->where('kode', 'D')
-            ->pluck('bobot')
-            ->first();
-        $nilaiD=$sumD*$bobotD;
-        $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
+                $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
+                    ->where('id_trader', $row->id_trader)
+                    ->where('kode', 'D')
+                    ->sum('nilai');
+                $bobotD = DB::connection('sqlsrv2')->table('bobot')
+                    ->where('kode', 'D')
+                    ->pluck('bobot')
+                    ->first();
+                $nilaiD=$sumD*$bobotD;
+                $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
 
-        $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
-        ->where('id_trader',$id_trader)
-        ->select('*')
-        ->get();
-        if(count($cekDBnilai)>0){
-            $pengurangan = DB::connection('sqlsrv2')->table('bobot')
-            ->where('kode', 'D')
-            ->pluck('bobot')
-            ->first();
-            penilaian::where('id_trader', $id_trader)
-            ->update([
-                'skor' => $skor,
-                'total' => $skor - $pengurangan
-            ]);
-        }else{
-            penilaian::insert([
-                'id_trader' => $id_trader,
-                'skor'=> $skor,
-                'pengurangan'=> 0,
-                'total'=> $skor,
-            ]);
-        }
+                $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
+                ->where('id_trader',$row->id_trader)
+                ->select('*')
+                ->get();
+                if(count($cekDBnilai)>0){
+                    $pengurangan = DB::connection('sqlsrv')->table('penilaian')
+                    ->where('id_trader', $row->id_trader)
+                    ->pluck('pengurangan')
+                    ->first();
+                    $total=$skor - $pengurangan;
+                    if($total>=75){
+                        $kepatuhan="tinggi";
+                    }elseif($total<75 && $total>=45){
+                        $kepatuhan="sedang";
+                    }else{
+                        $kepatuhan="rendah";
+                    }
+                    penilaian::where('id_trader', $row->id_trader)
+                    ->update([
+                        'skor' => $skor,
+                        'total' => $total,
+                        'kepatuhan' => $kepatuhan
+                    ]);
+                }else{
+                    if($skor>=75){
+                        $kepatuhan="tinggi";
+                    }elseif($skor<75 && $skor>=45){
+                        $kepatuhan="sedang";
+                    }else{
+                        $kepatuhan="rendah";
+                    }
+                    penilaian::insert([
+                        'id_trader' => $row->id_trader,
+                        'skor'=> $skor,
+                        'pengurangan'=> 0,
+                        'total'=> $skor,
+                        'kepatuhan' => $kepatuhan
+                    ]);
+                }
+            }
+
+            
             return redirect('/') ; 
         }else{
             return redirect('/bobot/' . $id_trader)->with('gagal', 'Jumlah bobot harus antara 0-100');
