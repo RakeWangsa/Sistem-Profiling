@@ -12,5 +12,5 @@ class penilaian extends Model
     protected $table = 'penilaian';
     protected $connection = 'sqlsrv';
 
-    protected $fillable = ['id_trader', 'skor', 'pengurangan', 'total'];
+    protected $fillable = ['id_trader', 'skor', 'pengurangan', 'total', 'kepatuhan'];
 }

@@ -64,9 +64,16 @@
                                     </td>
                                     <td>
                                         <?php
-                                            $totalSkor=$skor-$totalPengurangan;
+                                            $totalSkor = DB::table('penilaian')
+                                            ->where('id_trader', $p->id_trader)
+                                            ->pluck('total')
+                                            ->first();
+                                            $patuh = DB::table('penilaian')
+                                            ->where('id_trader', $p->id_trader)
+                                            ->pluck('kepatuhan')
+                                            ->first();
                                             echo $totalSkor;
-                                            echo "\n(rendah)";
+                                            echo "\n".$patuh;
                                         ?>
                                     </td>
                                     <td>

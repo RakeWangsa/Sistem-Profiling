@@ -629,27 +629,45 @@ class KategorisasiController extends Controller
             ->first();
         $nilaiD=$sumD*$bobotD;
         $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
-
+        
         $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
         ->where('id_trader',$id_trader)
         ->select('*')
         ->get();
+        
         if(count($cekDBnilai)>0){
             $pengurangan = DB::connection('sqlsrv')->table('penilaian')
             ->where('id_trader', $id_trader)
             ->pluck('pengurangan')
             ->first();
+            $total=$skor - $pengurangan;
+            if($total>=75){
+                $kepatuhan="tinggi";
+            }elseif($total<75 && $total>=45){
+                $kepatuhan="sedang";
+            }else{
+                $kepatuhan="rendah";
+            }
             penilaian::where('id_trader', $id_trader)
             ->update([
                 'skor' => $skor,
-                'total' => $skor - $pengurangan
+                'total' => $total,
+                'kepatuhan' => $kepatuhan
             ]);
         }else{
+            if($skor>=75){
+                $kepatuhan="tinggi";
+            }elseif($skor<75 && $skor>=45){
+                $kepatuhan="sedang";
+            }else{
+                $kepatuhan="rendah";
+            }
             penilaian::insert([
                 'id_trader' => $id_trader,
                 'skor'=> $skor,
                 'pengurangan'=> 0,
                 'total'=> $skor,
+                'kepatuhan' => $kepatuhan
             ]);
         }
         

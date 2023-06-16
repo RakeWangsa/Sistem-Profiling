@@ -382,6 +382,11 @@ class CatatanController extends Controller
 
     public function delete($id)
     {
+        $id_trader = DB::table('pelanggaran_perusahaan')
+        ->where('id_catatan', $id)
+        ->pluck('perusahaan_id')
+        ->first();
+        
         $delete = DB::delete("DELETE FROM pelanggaran_perusahaan
                                 WHERE id_catatan = $id");
         $catatan = Catatan::find($id);
@@ -389,14 +394,10 @@ class CatatanController extends Controller
         if ($delete) {
             $rm = $catatan->delete();
             if ($rm) {
-                $id_trader = DB::table('pelanggaran_perusahaan')
-                    ->where('id_catatan', $id)
-                    ->pluck('perusahaan_id')
-                    ->first();
-                    $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
-                    ->where('perusahaan_id', $id_trader)
-                    ->pluck('pelanggaran_id');
-                    $pengurangan = DB::table('pelanggaran')
+                $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+                ->where('perusahaan_id', $id_trader)
+                ->pluck('pelanggaran_id');
+                $pengurangan = DB::table('pelanggaran')
                     ->whereIn('id', $pelanggaran_perusahaan)
                     ->pluck('kriteria');
                     $text = implode(" ", $pengurangan->toArray());
