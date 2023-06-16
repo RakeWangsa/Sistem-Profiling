@@ -10,6 +10,7 @@ use App\Models\pelanggaranPerusahaan;
 use App\Models\perusahaan;
 use App\Models\Kategorisasi;
 use App\Models\Bobot;
+use App\Models\penilaian;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Support\Facades\Auth;
@@ -78,6 +79,69 @@ class BobotController extends Controller
                     'bobot' => $request->bobot_4,
                 ]);
             }
+            $sumA = DB::connection('sqlsrv2')->table('kepatuhan')
+        ->where('id_trader', $id_trader)
+        ->where('kode', 'A')
+        ->sum('nilai');
+        $bobotA = DB::connection('sqlsrv2')->table('bobot')
+            ->where('kode', 'A')
+            ->pluck('bobot')
+            ->first();
+        $nilaiA=$sumA*$bobotA;
+
+        $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
+            ->where('id_trader', $id_trader)
+            ->where('kode', 'B')
+            ->sum('nilai');
+        $bobotB = DB::connection('sqlsrv2')->table('bobot')
+            ->where('kode', 'B')
+            ->pluck('bobot')
+            ->first();
+        $nilaiB=$sumB*$bobotB;
+
+        $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
+            ->where('id_trader', $id_trader)
+            ->where('kode', 'C')
+            ->sum('nilai');
+        $bobotC = DB::connection('sqlsrv2')->table('bobot')
+            ->where('kode', 'C')
+            ->pluck('bobot')
+            ->first();
+        $nilaiC=$sumC*$bobotC;
+
+        $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
+            ->where('id_trader', $id_trader)
+            ->where('kode', 'D')
+            ->sum('nilai');
+        $bobotD = DB::connection('sqlsrv2')->table('bobot')
+            ->where('kode', 'D')
+            ->pluck('bobot')
+            ->first();
+        $nilaiD=$sumD*$bobotD;
+        $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
+
+        $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
+        ->where('id_trader',$id_trader)
+        ->select('*')
+        ->get();
+        if(count($cekDBnilai)>0){
+            // $pengurangan = DB::connection('sqlsrv2')->table('bobot')
+            // ->where('kode', 'D')
+            // ->pluck('bobot')
+            // ->first();
+            penilaian::where('id_trader', $id_trader)
+            ->update([
+                'skor' => $skor,
+                'total' => $skor //- $pengurangan
+            ]);
+        }else{
+            penilaian::insert([
+                'id_trader' => $id_trader,
+                'skor'=> $skor,
+                'pengurangan'=> 0,
+                'total'=> $skor,
+            ]);
+        }
             return redirect('/') ; 
         }else{
             return redirect('/bobot/' . $id_trader)->with('gagal', 'Jumlah bobot harus antara 0-100');

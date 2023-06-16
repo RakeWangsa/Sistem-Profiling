@@ -37,61 +37,15 @@
                                     <td>{{$p->nm_trader}}</td>
                                     <td>{{$p->kd_negara}}</td>
                                     <td>{{$p->al_trader}}</td>
-                                   <td>
+                                    <td>
                                         <?php
-                                            $cekDB = DB::connection('sqlsrv2')->table('kepatuhan')
+                                            $skor = DB::table('penilaian')
                                             ->where('id_trader', $p->id_trader)
-                                            ->select('*')
-                                            ->get();
-                                            if(count($cekDB)>0){
-                                                $sumA = DB::connection('sqlsrv2')->table('kepatuhan')
-                                                    ->where('id_trader', $p->id_trader)
-                                                    ->where('kode', 'A')
-                                                    ->sum('nilai');
-                                                $bobotA = DB::connection('sqlsrv2')->table('bobot')
-                                                    ->where('kode', 'A')
-                                                    ->pluck('bobot')
-                                                    ->first();
-                                                $nilaiA=$sumA*$bobotA;
-
-                                                $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
-                                                    ->where('id_trader', $p->id_trader)
-                                                    ->where('kode', 'B')
-                                                    ->sum('nilai');
-                                                $bobotB = DB::connection('sqlsrv2')->table('bobot')
-                                                    ->where('kode', 'B')
-                                                    ->pluck('bobot')
-                                                    ->first();
-                                                $nilaiB=$sumB*$bobotB;
-
-                                                $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
-                                                    ->where('id_trader', $p->id_trader)
-                                                    ->where('kode', 'C')
-                                                    ->sum('nilai');
-                                                $bobotC = DB::connection('sqlsrv2')->table('bobot')
-                                                    ->where('kode', 'C')
-                                                    ->pluck('bobot')
-                                                    ->first();
-                                                $nilaiC=$sumC*$bobotC;
-
-                                                $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
-                                                    ->where('id_trader', $p->id_trader)
-                                                    ->where('kode', 'D')
-                                                    ->sum('nilai');
-                                                $bobotD = DB::connection('sqlsrv2')->table('bobot')
-                                                    ->where('kode', 'D')
-                                                    ->pluck('bobot')
-                                                    ->first();
-                                                $nilaiD=$sumD*$bobotD;
-                                                $total=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
-                                                echo $total;
-                                            }else{
-                                                echo '-';
-                                            }
-                                            
+                                            ->pluck('skor')
+                                            ->first();
+                                            echo $skor;
                                         ?>
                                     </td>
-
                                     <td>
                                         <?php
                                             $pengurangan = DB::table('pelanggaran_perusahaan')
