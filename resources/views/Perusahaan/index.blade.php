@@ -27,7 +27,8 @@
                                     <th>Id Negara</th>
                                     <th>Alamat</th>
                                     <th>Skor</th>
-                                    <th>kurang</th>
+                                    <th>Pelanggaran</th>
+                                    <th>Total</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -48,14 +49,25 @@
                                     </td>
                                     <td>
                                         <?php
-                                            $pengurangan = DB::table('pelanggaran_perusahaan')
+                                            $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
                                             ->where('perusahaan_id', $p->id_trader)
-                                            ->select('pelanggaran_id')
-                                            ->get();
-                                            echo $pengurangan;
+                                            ->pluck('pelanggaran_id');
+                                            $pengurangan = DB::table('pelanggaran')
+                                            ->whereIn('id', $pelanggaran_perusahaan)
+                                            ->pluck('kriteria');
+                                            $text = implode(" ", $pengurangan->toArray());
+                                            $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+                                            $jumlah_teknis = substr_count($text, "TEKNIS");
+                                            $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
+                                            echo $totalPengurangan;
                                         ?>
                                     </td>
-
+                                    <td>
+                                        <?php
+                                            $totalSkor=$skor-$totalPengurangan;
+                                            echo $totalSkor;
+                                        ?>
+                                    </td>
                                     <td>
                                         <!-- <a href="pelanggaran/{{$p->id_trader}}">detail...</a> -->
                                         <div class="btn-group">

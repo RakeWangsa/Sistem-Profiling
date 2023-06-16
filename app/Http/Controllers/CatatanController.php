@@ -8,6 +8,7 @@ use App\Models\checklistPelanggaran;
 use App\Models\pelanggaran;
 use App\Models\pelanggaranPerusahaan;
 use App\Models\perusahaan;
+use App\Models\penilaian;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Support\Facades\Auth;
@@ -184,6 +185,40 @@ class CatatanController extends Controller
             ]);
             $i++;
         };
+        $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+        ->where('perusahaan_id', $id)
+        ->pluck('pelanggaran_id');
+        $pengurangan = DB::table('pelanggaran')
+        ->whereIn('id', $pelanggaran_perusahaan)
+        ->pluck('kriteria');
+        $text = implode(" ", $pengurangan->toArray());
+        $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+        $jumlah_teknis = substr_count($text, "TEKNIS");
+        $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
+        $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
+        ->where('id_trader',$id)
+        ->select('*')
+        ->get();
+        if(count($cekDBnilai)>0){
+            $skor = DB::connection('sqlsrv')->table('penilaian')
+            ->where('id_trader', $id)
+            ->pluck('skor')
+            ->first();
+            $total = $skor - $totalPengurangan;
+            penilaian::where('id_trader', $id)
+            ->update([
+                'pengurangan' => $totalPengurangan,
+                'total' => $total
+            ]);
+        }else{
+            $total = 0 - $totalPengurangan;
+            penilaian::insert([
+                'id_trader' => $id,
+                'skor'=> 0,
+                'pengurangan'=> $totalPengurangan,
+                'total'=> $total,
+            ]);
+        }
 
         return redirect()->route('perusahaan.pelanggaran', ['id' => $catatan->perusahaan_id])->with('success', 'Pelanggaran berhasil dicatat');
 
