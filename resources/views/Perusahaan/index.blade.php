@@ -66,6 +66,7 @@
                                         <?php
                                             $totalSkor=$skor-$totalPengurangan;
                                             echo $totalSkor;
+                                            echo "\n(rendah)";
                                         ?>
                                     </td>
                                     <td>

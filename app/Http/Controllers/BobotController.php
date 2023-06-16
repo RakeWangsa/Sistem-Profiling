@@ -125,14 +125,14 @@ class BobotController extends Controller
         ->select('*')
         ->get();
         if(count($cekDBnilai)>0){
-            // $pengurangan = DB::connection('sqlsrv2')->table('bobot')
-            // ->where('kode', 'D')
-            // ->pluck('bobot')
-            // ->first();
+            $pengurangan = DB::connection('sqlsrv2')->table('bobot')
+            ->where('kode', 'D')
+            ->pluck('bobot')
+            ->first();
             penilaian::where('id_trader', $id_trader)
             ->update([
                 'skor' => $skor,
-                'total' => $skor //- $pengurangan
+                'total' => $skor - $pengurangan
             ]);
         }else{
             penilaian::insert([
