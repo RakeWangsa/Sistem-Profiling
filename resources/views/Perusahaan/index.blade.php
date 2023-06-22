@@ -59,7 +59,9 @@
                                             $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
                                             $jumlah_teknis = substr_count($text, "TEKNIS");
                                             $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
-                                            echo $totalPengurangan;
+                                            echo $totalPengurangan."<br>";
+                                            echo "Administrasi : ".$jumlah_administrasi."<br>";
+                                            echo "Teknis : ".$jumlah_teknis*3;
                                         ?>
                                     </td>
                                     <td>
