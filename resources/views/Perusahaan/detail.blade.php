@@ -72,7 +72,7 @@
                                         <tr>
                                             <th>Nomor PPK</th>
                                             <th>Tanggal</th>
-                                            <th>Kepatuhan</th>
+                                            <th>Pelanggaran</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -80,7 +80,7 @@
                                         <tr>
                                             <td>{{$n->no_ppk}}</td>
                                             <td>{{Carbon\Carbon::parse($n->tanggal_pelanggaran)->format('d-m-Y')}}</td>
-                                            <td>{{$n->level_kepatuhan}} ({{$n->tingkat_kepatuhan}})</td>
+                                            <td>{{$n->id}} ({{$n->tingkat_kepatuhan}})</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

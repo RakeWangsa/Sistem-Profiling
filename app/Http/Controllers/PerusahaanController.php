@@ -89,7 +89,7 @@ class PerusahaanController extends Controller
         // ->join(DB::connection('sqlsrv2')->table('r_vpt_ops_harian as p'), 'c.id_ppk', '=', 'p.id_ppk')
         // ->select('c.tanggal_pelanggaran', 'c.tingkat_kepatuhan', 'c.level_kepatuhan', 'p.no_ppk')
         // ->where('catatan.perusahaan_id', '=', $id)->get();
-        $nilai = DB::select("SELECT DISTINCT c.tanggal_pelanggaran, c.tingkat_kepatuhan, c.level_kepatuhan, v.no_ppk FROM catatan AS c
+        $nilai = DB::select("SELECT DISTINCT c.id, c.tanggal_pelanggaran, c.tingkat_kepatuhan, c.level_kepatuhan, v.no_ppk FROM catatan AS c
         INNER JOIN karimutu.dbo.v_rpt_ops_harian AS v
         ON c.id_ppk = v.id_ppk
         WHERE c.perusahaan_id = $id");

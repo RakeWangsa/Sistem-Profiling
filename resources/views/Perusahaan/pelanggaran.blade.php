@@ -80,7 +80,7 @@
                         <tr>
                             <th>Nomor PPK</th>
                             <th>Tanggal</th>
-                            <th>Kepatuhan</th>
+                            <th>Pelanggaran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -89,7 +89,23 @@
                         <tr>
                             <td>{{$n->no_ppk}}</td>
                             <td>{{Carbon\Carbon::parse($n->tanggal_pelanggaran)->format('d-M-Y')}}</td>
-                            <td>{{$n->level_kepatuhan}} ({{$n->tingkat_kepatuhan}})</td>
+                            {{-- <td>{{$n->level_kepatuhan}} ({{$n->tingkat_kepatuhan}})</td> --}}
+                            <td>
+                                <?php
+                                    $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+                                    ->where('id_catatan', $n->id)
+                                    ->pluck('pelanggaran_id');
+                                    $pengurangan = DB::table('pelanggaran')
+                                    ->whereIn('id', $pelanggaran_perusahaan)
+                                    ->pluck('kriteria');
+                                    $text = implode(" ", $pengurangan->toArray());
+                                    $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+                                    $jumlah_teknis = substr_count($text, "TEKNIS");
+                                    echo "Administrasi : ".$jumlah_administrasi."<br>";
+                                    echo "Teknis : ".$jumlah_teknis*3;
+                                ?>
+                            </td>
+                                
                             <td>
                                 <div class="btn-group" role="group">
                                     <a type="button" class="btn btn-warning" href="/catat/{{$n->id}}/edit">Edit</a>

@@ -30,9 +30,12 @@
                             </div>
 
                             <div class="card-body">
-                                <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
-                                <div class="col-sm-10">
-                                  <input name="bobot_1" type="number" step="1" min="0" max="100" class="form-control" required>
+                                <div class="card-body">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
+                                    <div class="col-sm-10">
+                                        <input name="bobot_1" type="number" step="1" min="0" max="100" class="form-control" required>
+                                        <p>( Input dalam persen )</p>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -47,6 +50,7 @@
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
                                       <input name="bobot_2" type="number" step="1" min="0" max="100" class="form-control" required>
+                                      <p>( Input dalam persen )</p>
                                     </div>
                                 </div>
                             </div>
@@ -61,6 +65,7 @@
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
                                       <input name="bobot_3" type="number" step="1" min="0" max="100" class="form-control" required>
+                                      <p>( Input dalam persen )</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +80,7 @@
                                     <label for="inputPassword" class="col-sm-4 col-form-label ">Bobot</label>
                                     <div class="col-sm-10">
                                       <input name="bobot_4" type="number" step="1" min="0" max="100" class="form-control" required>
+                                      <p>( Input dalam persen )</p>
                                     </div>
                                 </div>
                                 <div class="text-center ml-4 mb-5 mt-4"> <button type="submit" class="btn btn-primary">Submit</button> <button type="reset" class="btn btn-secondary">Reset</button></div>

@@ -16,7 +16,7 @@
             @if(session()->has('error'))
             <div class="p-3 mt-2 mb-2 bg-danger text-white">{{ session()->get('error') }}</div>
             @endif
-            <h4 class="mb-4 mt-4">Catatw Pelanggaran</h4><br>
+            <h4 class="mb-4 mt-4">Catat Pelanggaran</h4><br>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card mb-4">

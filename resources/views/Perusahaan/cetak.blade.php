@@ -39,7 +39,21 @@
                                         ?>
                                     </td>
                                     <td style="padding: 10px;">{{ $p->skor }}</td>
-                                    <td style="padding: 10px;">{{ $p->pengurangan }}</td>
+                                    <td style="padding: 10px;">{{ $p->pengurangan }}
+                                        <?php
+                                            $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+                                            ->where('perusahaan_id', $p->id_trader)
+                                            ->pluck('pelanggaran_id');
+                                            $pengurangan = DB::table('pelanggaran')
+                                            ->whereIn('id', $pelanggaran_perusahaan)
+                                            ->pluck('kriteria');
+                                            $text = implode(" ", $pengurangan->toArray());
+                                            $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+                                            $jumlah_teknis = substr_count($text, "TEKNIS");
+                                            echo "Administrasi : ".$jumlah_administrasi."<br>";
+                                            echo "Teknis : ".$jumlah_teknis*3;
+                                        ?>
+                                    </td>
                                     <td style="padding: 10px;">
                                         <span style="display: block;">{{ $p->total }}</span>
                                         <span style="display: block;">({{ $p->kepatuhan }})</span>
