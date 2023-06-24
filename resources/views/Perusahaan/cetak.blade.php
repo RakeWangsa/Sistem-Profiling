@@ -18,50 +18,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($perusahaan as $p)
+                                @foreach($nilai as $p)
                                 <tr>
-                                    <td style="padding: 10px;">{{$p->nm_trader}}</td>
-                                    <td style="padding: 10px;">{{$p->al_trader}}</td>
                                     <td style="padding: 10px;">
                                         <?php
-                                            $skor = DB::table('penilaian')
+                                            $nm_trader = DB::connection('sqlsrv2')->table('tb_r_trader')
                                             ->where('id_trader', $p->id_trader)
-                                            ->pluck('skor')
+                                            ->pluck('nm_trader')
                                             ->first();
-                                            echo $skor;
+                                            echo $nm_trader;
                                         ?>
                                     </td>
                                     <td style="padding: 10px;">
                                         <?php
-                                            $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
-                                            ->where('perusahaan_id', $p->id_trader)
-                                            ->pluck('pelanggaran_id');
-                                            $pengurangan = DB::table('pelanggaran')
-                                            ->whereIn('id', $pelanggaran_perusahaan)
-                                            ->pluck('kriteria');
-                                            $text = implode(" ", $pengurangan->toArray());
-                                            $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
-                                            $jumlah_teknis = substr_count($text, "TEKNIS");
-                                            $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
-                                            echo $totalPengurangan."<br>";
-                                            echo "Administrasi : ".$jumlah_administrasi."<br>";
-                                            echo "Teknis : ".$jumlah_teknis*3;
+                                            $al_trader = DB::connection('sqlsrv2')->table('tb_r_trader')
+                                            ->where('id_trader', $p->id_trader)
+                                            ->pluck('al_trader')
+                                            ->first();
+                                            echo $al_trader;
                                         ?>
                                     </td>
+                                    <td style="padding: 10px;">{{ $p->skor }}</td>
+                                    <td style="padding: 10px;">{{ $p->pengurangan }}</td>
                                     <td style="padding: 10px;">
-                                        <?php
-                                            $totalSkor = DB::table('penilaian')
-                                            ->where('id_trader', $p->id_trader)
-                                            ->pluck('total')
-                                            ->first();
-                                            $patuh = DB::table('penilaian')
-                                            ->where('id_trader', $p->id_trader)
-                                            ->pluck('kepatuhan')
-                                            ->first();
-                                            echo $totalSkor."<br>";
-                                            echo "(".$patuh.")";
-                                        ?>
+                                        <span style="display: block;">{{ $p->total }}</span>
+                                        <span style="display: block;">({{ $p->kepatuhan }})</span>
                                     </td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>
