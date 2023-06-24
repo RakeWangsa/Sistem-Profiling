@@ -11,18 +11,16 @@
                             <thead>
                                 <tr>
                                     <th style="padding: 10px;">Nama Perusahaan</th>
-                                    <th style="padding: 10px;">Id Negara</th>
                                     <th style="padding: 10px;">Alamat</th>
-                                    <th style="padding: 10px;">Skor</th>
+                                    <th style="padding: 10px;">Nilai Assesment Awal</th>
                                     <th style="padding: 10px;">Pelanggaran</th>
-                                    <th style="padding: 10px;">Total</th>
+                                    <th style="padding: 10px;">Skor Kepatuhan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($perusahaan as $p)
                                 <tr>
                                     <td style="padding: 10px;">{{$p->nm_trader}}</td>
-                                    <td style="padding: 10px;">{{$p->kd_negara}}</td>
                                     <td style="padding: 10px;">{{$p->al_trader}}</td>
                                     <td style="padding: 10px;">
                                         <?php
@@ -45,7 +43,9 @@
                                             $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
                                             $jumlah_teknis = substr_count($text, "TEKNIS");
                                             $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
-                                            echo $totalPengurangan;
+                                            echo $totalPengurangan."<br>";
+                                            echo "Administrasi : ".$jumlah_administrasi."<br>";
+                                            echo "Teknis : ".$jumlah_teknis*3;
                                         ?>
                                     </td>
                                     <td style="padding: 10px;">
@@ -59,7 +59,7 @@
                                             ->pluck('kepatuhan')
                                             ->first();
                                             echo $totalSkor."<br>";
-                                            echo $patuh;
+                                            echo "(".$patuh.")";
                                         ?>
                                     </td>
                                 </tr>

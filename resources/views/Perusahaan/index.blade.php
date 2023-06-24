@@ -26,9 +26,9 @@
                                     <th>Nama Perusahaan</th>
                                     <th>Id Negara</th>
                                     <th>Alamat</th>
-                                    <th>Skor</th>
+                                    <th>Nilai Assesment Awal</th>
                                     <th>Pelanggaran</th>
-                                    <th>Total</th>
+                                    <th>Skor Kepatuhan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -75,7 +75,7 @@
                                             ->pluck('kepatuhan')
                                             ->first();
                                             echo $totalSkor."<br>";
-                                            echo $patuh;
+                                            echo "(".$patuh.")";
                                         ?>
                                     </td>
                                     <td>
