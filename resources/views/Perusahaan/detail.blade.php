@@ -80,7 +80,21 @@
                                         <tr>
                                             <td>{{$n->no_ppk}}</td>
                                             <td>{{Carbon\Carbon::parse($n->tanggal_pelanggaran)->format('d-m-Y')}}</td>
-                                            <td>{{$n->id}} ({{$n->tingkat_kepatuhan}})</td>
+                                            <td>
+                                                <?php
+                                                    $pelanggaran_perusahaan = DB::table('pelanggaran_perusahaan')
+                                                    ->where('id_catatan', $n->id)
+                                                    ->pluck('pelanggaran_id');
+                                                    $pengurangan = DB::table('pelanggaran')
+                                                    ->whereIn('id', $pelanggaran_perusahaan)
+                                                    ->pluck('kriteria');
+                                                    $text = implode(" ", $pengurangan->toArray());
+                                                    $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
+                                                    $jumlah_teknis = substr_count($text, "TEKNIS");
+                                                    echo "Administrasi : ".$jumlah_administrasi."<br>";
+                                                    echo "Teknis : ".$jumlah_teknis*3;
+                                                ?>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
