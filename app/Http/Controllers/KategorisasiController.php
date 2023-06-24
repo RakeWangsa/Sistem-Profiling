@@ -9,6 +9,7 @@ use App\Models\pelanggaran;
 use App\Models\pelanggaranPerusahaan;
 use App\Models\perusahaan;
 use App\Models\Kategorisasi;
+use App\Models\info_perusahaan;
 use App\Models\penilaian;
 use App\Models\Bobot;
 use Illuminate\Support\Facades\DB;
@@ -100,6 +101,34 @@ class KategorisasiController extends Controller
         //     // Lakukan langkah yang sama untuk data lainnya
         //     // ...
         // }
+        $cekDBinfo_perusahaan = DB::connection('sqlsrv')->table('info_perusahaan')
+        ->where('id_trader',$id_trader)
+        ->select('*')
+        ->get();
+        if(count($cekDBinfo_perusahaan)>0){
+            info_perusahaan::where('id_trader', $id_trader)
+            ->update([
+                'nama_pemilik' => $request->nama_pemilik,
+                'al_instalasi' => $request->al_instalasi,
+                'komoditas' => $request->komoditas,
+                'jenis_kegiatan' => $request->jenis_kegiatan,
+                'upt_bkipm' => $request->upt_bkipm,
+            ]);
+        }else{
+            info_perusahaan::insert([
+                'id_trader' => $id_trader,
+                'nama_pemilik' => $request->nama_pemilik,
+                'al_instalasi' => $request->al_instalasi,
+                'komoditas' => $request->komoditas,
+                'jenis_kegiatan' => $request->jenis_kegiatan,
+                'upt_bkipm' => $request->upt_bkipm,
+            ]);
+        }
+
+
+
+
+
         $cekDB = DB::connection('sqlsrv2')->table('kepatuhan')
         ->where('id_trader',$id_trader)
         ->select('*')

@@ -20,6 +20,8 @@
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
                         </div>
+
+                        <form class="row g-3 mt-3" method="GET" action="{{route('SubmitKategorisasi',['id_trader'=> $id_trader])}}">
                         <div class="card-body">
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label ">Nama Perusahaan</label>
@@ -31,12 +33,12 @@
                                     @endif
                                 </div>
 
-                                <label for="inputPassword" class="col-sm-2 col-form-label mb-4">Nama Pemilik</label>
+                                <label class="col-sm-2 col-form-label mb-4">Nama Pemilik</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" >
+                                  <input name="nama_pemilik" type="text" class="form-control" required>
                                 </div>
 
-                                <label for="inputPassword" class="col-sm-2 col-form-label ">Alamat Kantor Pusat</label>
+                                <label class="col-sm-2 col-form-label ">Alamat Kantor Pusat</label>
                                 <div class="col-sm-10 ">
                                     @if (isset($header))
                                     <h6> {{ $header[0]->al_trader }} </h6>
@@ -45,31 +47,31 @@
                                     @endif
                                 </div>
 
-                                <label for="inputPassword" class="col-sm-2 col-form-label ">Alamat Instalasi</label>
+                                <label class="col-sm-2 col-form-label ">Alamat Instalasi</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" >
+                                  <input name="al_instalasi" type="text" class="form-control" required>
                                 </div>
 
-                                <label for="inputPassword" class="col-sm-2 col-form-label mb-4">Komoditas</label>
+                                <label class="col-sm-2 col-form-label mb-4">Komoditas</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" >
+                                  <input name="komoditas" type="text" class="form-control" required>
                                 </div>
 
                             
-                                <label for="inputPassword" class="col-sm-2 col-form-label mb-4">Jenis Kegiatan</label>
-                                <select  class="form-select col-sm-10 mb-4">
+                                <label class="col-sm-2 col-form-label mb-4">Jenis Kegiatan</label>
+                                <select name="jenis_kegiatan" class="form-select col-sm-10 mb-4" required>
                                     <option>Importasi Ikan Hias (UPI)</option>
                                     <option>Distributor</option>
                                 </select>
                                 
 
-                                <label for="inputPassword" class="col-sm-2 col-form-label mb-4">UPT BKIPM</label>
+                                <label class="col-sm-2 col-form-label mb-4">UPT BKIPM</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" >
+                                  <input name="upt_bkipm" type="text" class="form-control" required>
                                 </div>
                             </div>
                         </div>
-                        <form class="row g-3 mt-3" method="GET" action="{{route('SubmitKategorisasi',['id_trader'=> $id_trader])}}">
+                        
                             <!-- Verifikasi 1 -->
                             <div class="card-header col-sm-11 ml-3">
                                 <input name="v1_1" type="text" class="form-control col-sm-10"  value="A:STATUS KEPEMILIKAN PERUSAHAAN" style="border: none; background-color: transparent;" readonly>
