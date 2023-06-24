@@ -1,13 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-
+<?php
+$totalSkor=0;
+?>
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Data Perusahaan</h1>
+            <h1 class="mt-4">DATABASE KEPATUHAN PENGGUNA LAYANAN</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Perusahaan</li>
+                <li class="breadcrumb-item active">BALAI BESAR KIPM JAKARTA I</li>
             </ol>
             <!-- <div class="row justify-content-between mt-4 mb-4">
                 <h4>Data Pengguna</h4>
@@ -16,7 +18,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
-                    Data Perusahaan
+                    Data ASSESMENT
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -24,11 +26,10 @@
                             <thead>
                                 <tr>
                                     <th>Nama Perusahaan</th>
-                                    <th>Id Negara</th>
                                     <th>Alamat</th>
-                                    <th>Nilai Assesment Awal</th>
-                                    <th>Pelanggaran</th>
-                                    <th>Skor Kepatuhan</th>
+                                    <th>Nilai Assesment</th>
+                                    <th>Nilai Pelanggaran</th>
+                                    <th>Kepatuhan <br> Pengguna Layanan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -36,7 +37,6 @@
                                 @foreach($perusahaan as $p)
                                 <tr>
                                     <td>{{$p->nm_trader}}</td>
-                                    <td>{{$p->kd_negara}}</td>
                                     <td>{{$p->al_trader}}</td>
                                     <td>
                                         <?php
@@ -59,23 +59,25 @@
                                             $jumlah_administrasi = substr_count($text, "ADMINISTRASI");
                                             $jumlah_teknis = substr_count($text, "TEKNIS");
                                             $totalPengurangan = $jumlah_administrasi + (3 * $jumlah_teknis);
-                                            echo $totalPengurangan."<br>";
-                                            echo "Administrasi : ".$jumlah_administrasi."<br>";
-                                            echo "Teknis : ".$jumlah_teknis*3;
+                                            $totalSkor = $skor - $totalPengurangan;
+                                            echo $totalPengurangan;
+
                                         ?>
                                     </td>
                                     <td>
                                         <?php
-                                            $totalSkor = DB::table('penilaian')
-                                            ->where('id_trader', $p->id_trader)
-                                            ->pluck('total')
-                                            ->first();
+                                         //   $totalSkor = DB::table('penilaian')
+                                         //   ->where('id_trader', $p->id_trader)
+                                         //   ->pluck('total')
+                                         //   ->first();
+                                    
+                                        
                                             $patuh = DB::table('penilaian')
                                             ->where('id_trader', $p->id_trader)
                                             ->pluck('kepatuhan')
                                             ->first();
                                             echo $totalSkor."<br>";
-                                            echo "(".$patuh.")";
+                                            echo $patuh;
                                         ?>
                                     </td>
                                     <td>

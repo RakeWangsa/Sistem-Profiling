@@ -91,7 +91,7 @@ class BobotController extends Controller
                     ->where('kode', 'A')
                     ->pluck('bobot')
                     ->first();
-                $nilaiA=$sumA*$bobotA;
+                $nilaiA=($sumA/35)*10;
 
                 $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -101,7 +101,7 @@ class BobotController extends Controller
                     ->where('kode', 'B')
                     ->pluck('bobot')
                     ->first();
-                $nilaiB=$sumB*$bobotB;
+                $nilaiB=($sumB/35)*20;
 
                 $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -111,7 +111,7 @@ class BobotController extends Controller
                     ->where('kode', 'C')
                     ->pluck('bobot')
                     ->first();
-                $nilaiC=$sumC*$bobotC;
+                $nilaiC=($sumC/60)*30;
 
                 $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -121,9 +121,9 @@ class BobotController extends Controller
                     ->where('kode', 'D')
                     ->pluck('bobot')
                     ->first();
-                $nilaiD=$sumD*$bobotD;
-                $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
-
+                $nilaiD=($sumD/20)*40;
+                $skor=$nilaiA+$nilaiB+$nilaiC+$nilaiD;
+//$skor=100;
                 $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
                 ->where('id_trader',$row->id_trader)
                 ->select('*')
@@ -164,7 +164,6 @@ class BobotController extends Controller
                     ]);
                 }
             }
-
             
             return redirect('/') ; 
         }else{

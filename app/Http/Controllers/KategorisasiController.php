@@ -626,7 +626,7 @@ class KategorisasiController extends Controller
             ->where('kode', 'A')
             ->pluck('bobot')
             ->first();
-        $nilaiA=$sumA*$bobotA;
+        $nilaiA=($sumA/35)*$bobotA;
 
         $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
             ->where('id_trader', $id_trader)
@@ -636,7 +636,7 @@ class KategorisasiController extends Controller
             ->where('kode', 'B')
             ->pluck('bobot')
             ->first();
-        $nilaiB=$sumB*$bobotB;
+        $nilaiB=($sumB/35)*$bobotB;
 
         $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
             ->where('id_trader', $id_trader)
@@ -646,7 +646,7 @@ class KategorisasiController extends Controller
             ->where('kode', 'C')
             ->pluck('bobot')
             ->first();
-        $nilaiC=$sumC*$bobotC;
+        $nilaiC=($sumC/60)*$bobotC;
 
         $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
             ->where('id_trader', $id_trader)
@@ -656,8 +656,8 @@ class KategorisasiController extends Controller
             ->where('kode', 'D')
             ->pluck('bobot')
             ->first();
-        $nilaiD=$sumD*$bobotD;
-        $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
+        $nilaiD=($sumD/20)*$bobotD;
+        $skor=($nilaiA+$nilaiB+$nilaiC+$nilaiD);
         
         $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
         ->where('id_trader',$id_trader)
