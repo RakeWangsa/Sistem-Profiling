@@ -153,7 +153,7 @@ class BobotController extends Controller
                 }else{
                     if($skor>=75){
                         $kepatuhan="tinggi";
-                    }elseif($skor<75 && $skor>=45){
+                    }elseif($skor<75 && $skor>=60){
                         $kepatuhan="sedang";
                     }else{
                         $kepatuhan="rendah";
