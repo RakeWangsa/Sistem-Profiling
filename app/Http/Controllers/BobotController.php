@@ -23,7 +23,10 @@ class BobotController extends Controller
     public function index(Request $request){
         $id_trader = request()->segment(2);
         $header = DB::connection('sqlsrv2')->select("SELECT id_trader, nm_trader, al_trader FROM [tb_r_trader] WHERE id_trader = $id_trader");
-        return view('Bobot.index', ['header' => $header , 'id_trader' => $id_trader]);
+        $bobot = DB::connection('sqlsrv2')->table('bobot')
+            ->select('*')
+            ->get();
+        return view('Bobot.index', ['header' => $header , 'id_trader' => $id_trader, 'bobot' => $bobot]);
     }
     
     public function submit(Request $request){
@@ -91,7 +94,7 @@ class BobotController extends Controller
                     ->where('kode', 'A')
                     ->pluck('bobot')
                     ->first();
-                $nilaiA=($sumA/35)*10;
+                    $nilaiA=$sumA*$bobotA;
 
                 $sumB = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -101,7 +104,7 @@ class BobotController extends Controller
                     ->where('kode', 'B')
                     ->pluck('bobot')
                     ->first();
-                $nilaiB=($sumB/35)*20;
+                    $nilaiB=$sumB*$bobotB;
 
                 $sumC = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -111,7 +114,7 @@ class BobotController extends Controller
                     ->where('kode', 'C')
                     ->pluck('bobot')
                     ->first();
-                $nilaiC=($sumC/60)*30;
+                    $nilaiC=$sumC*$bobotC;
 
                 $sumD = DB::connection('sqlsrv2')->table('kepatuhan')
                     ->where('id_trader', $row->id_trader)
@@ -121,9 +124,9 @@ class BobotController extends Controller
                     ->where('kode', 'D')
                     ->pluck('bobot')
                     ->first();
-                $nilaiD=($sumD/20)*40;
-                $skor=$nilaiA+$nilaiB+$nilaiC+$nilaiD;
-//$skor=100;
+                $nilaiD=$sumD*$bobotD;
+                $skors=($nilaiA+$nilaiB+$nilaiC+$nilaiD)/100;
+                $skor=$skors+45;
                 $cekDBnilai = DB::connection('sqlsrv')->table('penilaian')
                 ->where('id_trader',$row->id_trader)
                 ->select('*')
@@ -136,7 +139,7 @@ class BobotController extends Controller
                     $total=$skor - $pengurangan;
                     if($total>=75){
                         $kepatuhan="tinggi";
-                    }elseif($total<75 && $total>=45){
+                    }elseif($total<75 && $total>=60){
                         $kepatuhan="sedang";
                     }else{
                         $kepatuhan="rendah";

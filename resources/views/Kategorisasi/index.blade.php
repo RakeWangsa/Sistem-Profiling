@@ -35,7 +35,7 @@
 
                                 <label class="col-sm-2 col-form-label mb-4">Nama Pemilik</label>
                                 <div class="col-sm-10">
-                                  <input name="nama_pemilik" type="text" class="form-control" required>
+                                  <input name="nama_pemilik" type="text" @if(isset($info_perusahaan)) value="{{ $info_perusahaan->nama_pemilik }}" @endif class="form-control" required>
                                 </div>
 
                                 <label class="col-sm-2 col-form-label ">Alamat Kantor Pusat</label>
@@ -49,25 +49,32 @@
 
                                 <label class="col-sm-2 col-form-label ">Alamat Instalasi</label>
                                 <div class="col-sm-10">
-                                  <input name="al_instalasi" type="text" class="form-control" required>
+                                  <input name="al_instalasi" type="text" @if(isset($info_perusahaan)) value="{{ $info_perusahaan->al_instalasi }}" @endif class="form-control" required>
                                 </div>
 
                                 <label class="col-sm-2 col-form-label mb-4">Komoditas</label>
                                 <div class="col-sm-10">
-                                  <input name="komoditas" type="text" class="form-control" required>
+                                  <input name="komoditas" type="text" @if(isset($info_perusahaan)) value="{{ $info_perusahaan->komoditas }}" @endif class="form-control" required>
                                 </div>
 
-                            
+                                @if(isset($info_perusahaan))
                                 <label class="col-sm-2 col-form-label mb-4">Jenis Kegiatan</label>
                                 <select name="jenis_kegiatan" class="form-select col-sm-10 mb-4" required>
-                                    <option>Importasi Ikan Hias (UPI)</option>
-                                    <option>Distributor</option>
+                                    <option value="Importasi Ikan Hias (UPI)" {{ $info_perusahaan->jenis_kegiatan == "Importasi Ikan Hias (UPI)" ? 'selected' : '' }}>Importasi Ikan Hias (UPI)</option>
+                                    <option value="Distributor" {{ $info_perusahaan->jenis_kegiatan == "Distributor" ? 'selected' : '' }}>Distributor</option>
                                 </select>
                                 
+                                @else
+                                    <label class="col-sm-2 col-form-label mb-4">Jenis Kegiatan</label>
+                                    <select name="jenis_kegiatan" class="form-select col-sm-10 mb-4" required>
+                                        <option>Importasi Ikan Hias (UPI)</option>
+                                        <option>Distributor</option>
+                                    </select>
+                                @endif
 
                                 <label class="col-sm-2 col-form-label mb-4">UPT BKIPM</label>
                                 <div class="col-sm-10">
-                                  <input name="upt_bkipm" type="text" class="form-control" required>
+                                  <input name="upt_bkipm" type="text" @if(isset($info_perusahaan)) value="{{ $info_perusahaan->upt_bkipm }}" @endif class="form-control" required>
                                 </div>
                             </div>
                         </div>
